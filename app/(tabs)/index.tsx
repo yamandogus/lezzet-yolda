@@ -1,9 +1,13 @@
-import { Text, View } from 'react-native';
+import Category from '@/components/home/category';
+import Header from '@/components/home/header';
+import { Platform, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 justify-center items-center bg-blue-500">
-      <Text className="text-2xl font-bold text-white">Ana Sayfa</Text>
+    <View className='px-4 bg-custom-bg'>
+      {Platform.OS === "android" && <View className='h-20' />}
+      <Header/>
+      <Category/>
     </View>
   );
 }
