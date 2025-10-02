@@ -1,35 +1,57 @@
-import React from "react";
-import { ScrollView, Text, View } from "react-native";
-
+import { useColorScheme } from '@/hooks/use-color-scheme';
+import React, { useState } from "react";
+import { Image, ScrollView, Text, View } from "react-native";
 
 const categories = [
-  { name: "All", value: "all" },
-  { name: "Meat", value: "meat" },
-  { name: "Fast Food", value: "fast_food" },
-  { name: "Sushi", value: "sushi" },
-  { name: "Drinks", value: "drinks" },
-  { name: "Desserts", value: "desserts" },
-  { name: "Breakfast", value: "breakfast" },
-  { name: "Chicken", value: "chicken" },
-  { name: "Pasta", value: "pasta" },
-  { name: "Salads", value: "salads" },
-  { name: "Seafood", value: "seafood" },
-  { name: "Vegetarian", value: "vegetarian" },
-  { name: "Vegan", value: "vegan" },
-  { name: "Gluten Free", value: "gluten_free" },
+  { name: "All", value: "all", uri:"https://cdn-icons-png.flaticon.com/512/879/879842.png" },
+  { name: "Meat", value: "meat" , uri:"https://cdn-icons-png.flaticon.com/512/3075/3075926.png"},
+  { name: "Fast Food", value: "fast_food", uri:"https://cdn-icons-png.flaticon.com/512/1046/1046752.png"},
+  { name: "Sushi", value: "sushi", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108888.png" },
+  { name: "Drinks", value: "drinks", uri:"https://cdn-icons-png.flaticon.com/512/3075/3075977.png" },
+  { name: "Desserts", value: "desserts", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108837.png" },
+  { name: "Breakfast", value: "breakfast", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108808.png" },
+  { name: "Chicken", value: "chicken", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108847.png" },
+  { name: "Pasta", value: "pasta", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108872.png" },
+  { name: "Salads", value: "salads", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108828.png" },
+  { name: "Seafood", value: "seafood", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108891.png" },
+  { name: "Vegetarian", value: "vegetarian", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108858.png" },
+  { name: "Vegan", value: "vegan", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108858.png" },
+  { name: "Gluten Free", value: "gluten_free", uri:"https://cdn-icons-png.flaticon.com/512/3108/3108867.png" },
 ];
 
 const Category = () => {
+  const colorScheme = useColorScheme();
+  const [activeCategory, setActiveCategory] = useState("all");
+  
+  // Define background colors based on theme
+  const cardBg = colorScheme === 'dark' ? 'bg-gray-700' : 'bg-white';
+  const activeCardBg = colorScheme === 'dark' ? 'bg-blue-600' : 'bg-blue-500';
+  const textColor = colorScheme === 'dark' ? 'text-gray-100' : 'text-gray-800';
+  const activeTextColor = 'text-white';
+  
   return (
-    <View className="my-4">
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+    <View className={`my-4 py-3 rounded-xl`}>
+      <ScrollView 
+        horizontal 
+        showsHorizontalScrollIndicator={false}
+        className="px-4"
+      >
         <View className="flex-row">
           {categories.map((category, index) => (
             <View 
-              className={`bg-white rounded-full p-4 ${index !== categories.length - 1 ? 'mr-4' : ''}`} 
+              className={`${activeCategory === category.value ? activeCardBg : cardBg} w-20 rounded-xl px-2 py-3 mx-2 shadow-md items-center justify-center`}
               key={category.value}
+              onTouchEnd={() => setActiveCategory(category.value)}
             >
-              <Text className="text-md">{category.name}</Text>
+              <View className="items-center justify-center">
+                <Image
+                  source={{ uri: category.uri }}
+                  className="w-12 h-12 rounded-full"
+                />  
+                <Text className={`text-xs text-center mt-2 ${activeCategory === category.value ? activeTextColor : textColor} font-medium`}>
+                  {category.name}
+                </Text>
+              </View>
             </View>
           ))}
         </View>

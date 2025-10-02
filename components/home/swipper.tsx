@@ -4,9 +4,10 @@ import Swiper from "react-native-swiper";
 const AdvertSwiper = () => (
   <View className="h-48">
     <Swiper
+      className="rounded-lg"
       autoplay
       loop
-      showsPagination={true}
+      showsPagination={false}
       dotStyle={{
         backgroundColor: "rgba(0,0,0,.2)",
         width: 8,
@@ -26,9 +27,7 @@ const AdvertSwiper = () => (
     >
       <View className="rounded-lg">
         <Image
-          source={{
-            uri: "https://img.freepik.com/free-psd/delicious-pizza-restaurant-facebook-template_23-2150201517.jpg?semt=ais_hybrid&w=740&q=80",
-          }}
+          source={require("../../assets/images/lezzet_yolda.png")}
           className="rounded-lg"
           style={{ width: 380, height: 180 }}
         />
