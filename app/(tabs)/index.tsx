@@ -6,7 +6,7 @@ import { Platform, View } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 px-4 bg-[#f4f8f9] dark:bg-[#000022]">
+    <View className="flex-1 bg-[#f4f8f9] dark:bg-[#000022]">
       {Platform.OS === "android" && <View className="h-20" />}
       <Header />
       <Category />
