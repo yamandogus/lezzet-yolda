@@ -1,9 +1,15 @@
-import { Text, View } from 'react-native';
+import Content from '@/components/orders/content';
+import OrdersFooter from '@/components/orders/footer';
+import Header from '@/components/orders/header';
+import { Platform, View } from 'react-native';
 
 export default function OrdersScreen() {
   return (
-    <View className="flex-1 justify-center items-center bg-green-500">
-      <Text className="text-2xl font-bold text-white">Siparişlerim</Text>
+    <View className="flex-1 bg-[#f4f8f9] dark:bg-[#222238]">
+      {Platform.OS === "android" && <View className="h-20" />}
+      <Header />
+      <Content />
+      <OrdersFooter />
     </View>
   );
 }
