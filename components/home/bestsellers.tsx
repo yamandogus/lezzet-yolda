@@ -58,7 +58,7 @@ const BestSellers = () => {
       transition={{ type: "timing", duration: 300 }}
       className="my-6"
     >
-      <View className="flex-row justify-between items-center mb-4">
+      <View className="flex-row justify-between items-center mb-4 px-4">
         <Text className={`${titleColor} text-lg font-bold`}>Best Sellers</Text>
         <TouchableOpacity>
           <Text className={`${seeAllColor} text-sm font-semibold`}>
