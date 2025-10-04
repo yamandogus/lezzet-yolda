@@ -10,16 +10,18 @@ const tintColorDark = '#fff';
 
 export const Colors = {
   light: {
+    // Slightly warm off-white for a more professional, softer background
     text: '#11181C',
-    background: '#fff',
+    background: '#F4F8F9',
     tint: tintColorLight,
-    icon: '#687076',
+    icon: '#5A6B70',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
+    // Deep charcoal (not pure black) to reduce eye strain and look more refined
+    text: '#E7E9EA',
+    background: '#0F1415',
     tint: tintColorDark,
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',

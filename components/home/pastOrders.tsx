@@ -24,7 +24,7 @@ const PastOrders = () => {
         {orderHistory.map((order) => (
           <View
             key={order.id}
-            className="flex flex-col items-center m-2 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:text-white w-48"
+            className="flex flex-col items-center m-2 p-4 bg-custom-bg-light dark:bg-custom-bg-dark rounded-lg shadow-md dark:text-white w-48"
           >
             <View className="w-24 h-24 mb-2">
               <Image

@@ -10,8 +10,8 @@ module.exports = {
     extend: {
       colors:{
          'custom-bg': {
-          light: '#f4f8f9',
-          dark: '#1a1f21', // dark mod için uygun bir renk
+          light: '#F4F8F9',
+          dark: '#0F1415', // dark mode refined charcoal
         }
       }
     },

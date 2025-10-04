@@ -1,13 +1,8 @@
+import { ThemedText } from '@/components/themed-text';
 import { MotiView } from "moti";
 import React, { useState } from "react";
-import {
-    Dimensions,
-    FlatList,
-    Image,
-    Text,
-    TouchableOpacity,
-    View,
-} from "react-native";
+import { Dimensions, FlatList, Image, TouchableOpacity, View } from "react-native";
+import OrderDetails from "./orderDetails";
 
 type Order = {
   id: number;
@@ -103,33 +98,47 @@ const Content: React.FC = () => {
               />
 
               <View className="flex-1 ml-3 mr-2">
-                <Text className="text-base font-bold text-gray-900">{item.title}</Text>
+                <ThemedText type="defaultSemiBold" className="text-base">{item.title}</ThemedText>
                 {item.subtitle ? (
-                  <Text className="text-sm text-gray-500 mt-1">{item.subtitle}</Text>
+                  <ThemedText
+                    type="default"
+                    className="text-sm mt-1"
+                    lightColor="#687076"
+                    darkColor="#9BA1A6"
+                  >
+                    {item.subtitle}
+                  </ThemedText>
                 ) : null}
 
-                <Text className="text-sm text-gray-400 mt-1">{item.date} • {item.status}</Text>
+                <ThemedText
+                  type="default"
+                  className="text-sm mt-1"
+                  lightColor="#687076"
+                  darkColor="#9BA1A6"
+                >
+                  {item.date} • {item.status}
+                </ThemedText>
 
                 <View className="flex-row items-center justify-between mt-3">
-                  <Text className="text-lg font-semibold text-green-600">{(item.total/100).toFixed(2)} TL</Text>
+                  <ThemedText className="text-lg font-semibold text-green-600">{(item.total/100).toFixed(2)} TL</ThemedText>
 
                   <View className="flex-row items-center">
                     <TouchableOpacity
                       onPress={() => decrement(item.id)}
-                      className="bg-green-100 px-3 py-1 rounded-full mr-2"
+                      className="bg-green-100 dark:bg-green-600 px-3 py-1 rounded-full mr-2"
                     >
-                      <Text className="text-green-700 text-lg">−</Text>
+                      <ThemedText className="text-green-700 text-lg">−</ThemedText>
                     </TouchableOpacity>
 
                     <View className="px-3">
-                      <Text className="text-base font-medium text-gray-800">{quantities[item.id]}</Text>
+                      <ThemedText type="defaultSemiBold" className="text-base">{quantities[item.id]}</ThemedText>
                     </View>
 
                     <TouchableOpacity
                       onPress={() => increment(item.id)}
                       className="bg-green-600 px-3 py-1 rounded-full ml-2"
                     >
-                      <Text className="text-white text-lg">+</Text>
+                      <ThemedText className="text-white text-lg">+</ThemedText>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -138,6 +147,7 @@ const Content: React.FC = () => {
           </MotiView>
         )}
       />
+      <OrderDetails />  
     </MotiView>
   );
 };

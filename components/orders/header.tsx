@@ -21,7 +21,7 @@ const Header = () => {
         type: "timing",
         duration: 300,
       }}
-      className="flex flex-row justify-between items-center px-4 py-2"
+      className="flex flex-row justify-between items-center px-4 "
     >
       <View>
         <TouchableOpacity onPress={() => navigation.goBack()} className="bg-white rounded-full p-2">
